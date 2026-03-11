@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 import { UserPlus } from 'lucide-react';
 
 const Register = ({ setIsAuthenticated }) => {
@@ -15,7 +15,7 @@ const Register = ({ setIsAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const res = await api.post('/auth/register', formData);
       localStorage.setItem('token', res.data.token);
       setIsAuthenticated(true);
       navigate('/dashboard');

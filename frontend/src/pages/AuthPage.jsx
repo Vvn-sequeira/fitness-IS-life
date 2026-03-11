@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { Activity } from 'lucide-react';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
+import api from '../api/axiosConfig';
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -26,7 +26,7 @@ const AuthPage = () => {
     try {
       const endpoint = isLogin ? '/auth/login' : '/auth/register';
       const payload = isLogin ? { email: formData.email, password: formData.password } : formData;
-      const res = await axios.post(`http://localhost:5000/api${endpoint}`, payload);
+      const res = await api.post(endpoint, payload);
       login(res.data.token);
       toast.success(isLogin ? "Welcome back to the Grind!" : "Account created successfully!");
       navigate('/dashboard');
