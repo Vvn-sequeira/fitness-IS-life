@@ -148,6 +148,58 @@ input:focus, select:focus, textarea:focus {
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .nav-links .btn {
+    margin-left: 0.5rem !important;
+    padding: 6px 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.75rem;
+  }
+  
+  .nav-links {
+    gap: 0.75rem;
+  }
+  
+  .glass-panel {
+    padding: 16px;
+  }
+
+  h1.gradient-text, h2.gradient-text {
+    font-size: 1.5rem;
+  }
 }
 
 .nav-links {
@@ -224,4 +276,14 @@ input:focus, select:focus, textarea:focus {
 .fasting-active-card {
   border: 1px solid var(--accent-purple);
   animation: pulseGlow 2s infinite;
+}
+
+@media (max-width: 600px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .main-container {
+    padding: 16px !important;
+  }
 }

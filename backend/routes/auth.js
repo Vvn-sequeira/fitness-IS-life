@@ -8,8 +8,11 @@ const auth = require('../middleware/auth');
 router.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
   try {
-    let user = await User.findOne({ email });
-    if (user) return res.status(400).json({ msg: 'User already exists' });
+    let userByEmail = await User.findOne({ email });
+    if (userByEmail) return res.status(400).json({ msg: 'Email is already registered' });
+
+    let userByUsername = await User.findOne({ username });
+    if (userByUsername) return res.status(400).json({ msg: 'Username is already taken' });
 
     user = new User({ username, email, password });
     await user.save();

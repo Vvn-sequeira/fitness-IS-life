@@ -156,25 +156,31 @@ const Gallery = () => {
   return (
     <div className="grid">
       <div className="glass-panel flex items-center justify-between" style={{ flexWrap: 'wrap', gap: '16px' }}>
-        <h2 className="gradient-text">Progress Gallery</h2>
+        <h2 className="gradient-text" style={{ margin: 0 }}>Progress Gallery</h2>
         
-        <div className="flex items-center" style={{ gap: '16px' }}>
-            <select value={filter} onChange={(e) => setFilter(e.target.value)} style={{ width: 'auto', padding: '10px' }}>
-                <option value="All">All Time</option>
-                <option value="This Week">This Week</option>
-                <option value="Last Month">Last Month</option>
-                <option value="Older">Older</option>
-            </select>
+        <div className="flex items-center" style={{ gap: '12px', flexWrap: 'wrap', width: '100%', justifyContent: 'flex-end' }}>
+          <select 
+            value={filter} 
+            onChange={(e) => setFilter(e.target.value)} 
+            style={{ width: 'auto', padding: '10px', minWidth: '120px', flex: '1 1 auto' }}
+          >
+            <option value="All">All Time</option>
+            <option value="This Week">This Week</option>
+            <option value="Last Month">Last Month</option>
+            <option value="Older">Older</option>
+          </select>
           
-          <button className="btn btn-secondary m-0" onClick={startCamera} style={{ cursor: 'pointer', opacity: uploading ? 0.6 : 1, padding: '10px' }} disabled={uploading}>
-            <Camera size={20} />
-            <span style={{ marginLeft: '8px' }}>Take Photo</span>
-          </button>
-          <label className="btn btn-primary m-0" style={{ cursor: 'pointer', opacity: uploading ? 0.6 : 1, padding: '10px' }}>
-            <ImagePlus size={20} />
-            <span style={{ marginLeft: '8px' }}>Upload</span>
-            <input type="file" accept="image/*" onChange={handleFileSelect} style={{ display: 'none' }} disabled={uploading} />
-          </label>
+          <div className="flex" style={{ gap: '12px', flex: '1 1 auto', justifyContent: 'flex-end' }}>
+            <button className="btn btn-secondary m-0" onClick={startCamera} style={{ cursor: 'pointer', opacity: uploading ? 0.6 : 1, padding: '10px', flex: 1 }} disabled={uploading}>
+              <Camera size={20} />
+              <span className="hide-mobile" style={{ marginLeft: '8px' }}>Take Photo</span>
+            </button>
+            <label className="btn btn-primary m-0" style={{ cursor: 'pointer', opacity: uploading ? 0.6 : 1, padding: '10px', flex: 1 }}>
+              <ImagePlus size={20} />
+              <span className="hide-mobile" style={{ marginLeft: '8px' }}>Upload</span>
+              <input type="file" accept="image/*" onChange={handleFileSelect} style={{ display: 'none' }} disabled={uploading} />
+            </label>
+          </div>
         </div>
       </div>
 

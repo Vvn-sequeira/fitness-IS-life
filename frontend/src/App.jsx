@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       {isAuthenticated && <Navbar />}
-      <div style={{ padding: '24px', maxWidth: '1400px', margin: '0 auto' }}>
+      <div className="main-container" style={{ padding: '24px', maxWidth: '1400px', margin: '0 auto' }}>
         <Routes>
           <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/auth" />} />
           <Route path="/auth" element={isAuthenticated ? <Navigate to="/dashboard" /> : <AuthPage />} />

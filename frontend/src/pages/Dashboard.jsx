@@ -203,7 +203,7 @@ const Dashboard = () => {
       )}
 
       {/* Grid for Active Actions */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
         
         {/* Today's Grind */}
         <div className="glass-panel">
@@ -345,7 +345,7 @@ const Dashboard = () => {
 
       {/* Custom Modal overlay */}
       {showModal && (
-        <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.8)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.8)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div className="glass-panel animate-fade-in" style={{ width: '90%', maxWidth: '500px', background: 'var(--bg-color)', border: `2px solid ${modalType === 'workout' ? 'var(--accent-neon)' : 'var(--accent-purple)'}` }}>
             <h3 className="mb-4 gradient-text">{modalType === 'workout' ? 'Log Workout' : 'Log Meal'}</h3>
             <form onSubmit={submitQuickLog}>
